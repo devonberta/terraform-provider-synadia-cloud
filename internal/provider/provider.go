@@ -43,8 +43,14 @@ func (p *ScaffoldingProvider) Schema(ctx context.Context, req provider.SchemaReq
 	resp.Schema = schema.Schema{
 		Attributes: map[string]schema.Attribute{
 			"endpoint": schema.StringAttribute{
-				MarkdownDescription: "Example provider attribute",
+				MarkdownDescription: "The Synadia control plane endpoint.",
+				DefaultFunc: schema.EnvDefaultFunc("SYNADIA_API_ENDPOINT", "https://api.synadia.cloud"),
 				Optional:            true,
+			},
+			"token": schema.StringAttribute{
+				MarkdownDescription: "API token for authenticating to Synadia control plane.",
+				Required:	true,
+				Sensitive:	true,
 			},
 		},
 	}
@@ -74,24 +80,25 @@ func (p *ScaffoldingProvider) Resources(ctx context.Context) []func() resource.R
 	}
 }
 
+/*
 func (p *ScaffoldingProvider) EphemeralResources(ctx context.Context) []func() ephemeral.EphemeralResource {
 	return []func() ephemeral.EphemeralResource{
 		NewExampleEphemeralResource,
 	}
 }
-
+*/
 func (p *ScaffoldingProvider) DataSources(ctx context.Context) []func() datasource.DataSource {
 	return []func() datasource.DataSource{
 		NewExampleDataSource,
 	}
 }
-
+/*
 func (p *ScaffoldingProvider) Functions(ctx context.Context) []func() function.Function {
 	return []func() function.Function{
 		NewExampleFunction,
 	}
 }
-
+*/
 func New(version string) func() provider.Provider {
 	return func() provider.Provider {
 		return &ScaffoldingProvider{
