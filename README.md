@@ -1,64 +1,50 @@
-# Terraform Provider Scaffolding (Terraform Plugin Framework)
+# Terraform Provider for Synadia
 
-_This template repository is built on the [Terraform Plugin Framework](https://github.com/hashicorp/terraform-plugin-framework). The template repository built on the [Terraform Plugin SDK](https://github.com/hashicorp/terraform-plugin-sdk) can be found at [terraform-provider-scaffolding](https://github.com/hashicorp/terraform-provider-scaffolding). See [Which SDK Should I Use?](https://developer.hashicorp.com/terraform/plugin/framework-benefits) in the Terraform documentation for additional information._
+This Terraform provider allows users to manage and configure [Synadia](https://synadia.com) NATS clusters and resources via the [Synadia Control Plane](https://github.com/synadia-io/control-plane-sdk-go).
 
-This repository is a *template* for a [Terraform](https://www.terraform.io) provider. It is intended as a starting point for creating Terraform providers, containing:
+## Provider Features
 
-- A resource and a data source (`internal/provider/`),
-- Examples (`examples/`) and generated documentation (`docs/`),
-- Miscellaneous meta files.
+- Create, configure, and destroy NATS clusters.
+- Manage JetStream streams, consumers, KV stores, and object stores.
+- Configure leafnodes, gateways, and service imports/exports.
+- Support for Synadia Cloud and Synadia Platform (private endpoint).
 
-These files contain boilerplate code that you will need to edit to create your own Terraform provider. Tutorials for creating Terraform providers can be found on the [HashiCorp Developer](https://developer.hashicorp.com/terraform/tutorials/providers-plugin-framework) platform. _Terraform Plugin Framework specific guides are titled accordingly._
+### Resources
 
-Please see the [GitHub template repository documentation](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template) for how to create a new repository from this template on GitHub.
+| Name | Description | Status |
+|------|-------------|--------|
+| `synadia_cluster` | Manages a Synadia NATS cluster. | Planned |
+| `synadia_organization` | Manages an organization in the Synadia control plane. | Planned |
+| `synadia_project` | Manages a project under a Synadia organization. | Planned |
+| `synadia_user` | Manages a user in the Synadia control plane. | Planned |
+| `synadia_jwt_claim` | Manages a user JWT claim (identity and permissions). | Planned |
+| `synadia_permission` | Manages permissions for accounts or users. | Planned |
+| `synadia_stream` | Manages a JetStream stream. | Planned |
+| `synadia_consumer` | Manages a JetStream consumer. | Planned |
+| `synadia_kv_bucket` | Manages a JetStream KV bucket. | Planned |
+| `synadia_object_store` | Manages a JetStream object store. | Planned |
+| `synadia_cluster_gateway` | Configures a cluster gateway connection. | Planned |
+| `synadia_leafnode` | Configures a leafnode connection. | Planned |
+| `synadia_service_export` | Exports a service to other accounts. | Planned |
+| `synadia_service_import` | Imports a service from another account. | Planned |
 
-Once you've written your provider, you'll want to [publish it on the Terraform Registry](https://developer.hashicorp.com/terraform/registry/providers/publishing) so that others can use it.
 
-## Requirements
+### Data Sources
 
-- [Terraform](https://developer.hashicorp.com/terraform/downloads) >= 1.0
-- [Go](https://golang.org/doc/install) >= 1.23
+| Name | Description | Status |
+|------|-------------|--------|
+| `synadia_clusters` | Fetches a list of clusters. | Planned |
+| `synadia_cluster` | Fetches details for a specific cluster. | Planned |
+| `synadia_organization` | Fetches details of an organization. | Planned |
+| `synadia_user` | Fetches details of a user. | Planned |
+| `synadia_stream` | Fetches details of a stream. | Planned |
+| `synadia_kv_bucket` | Fetches details of a KV bucket. | Planned |
 
-## Building The Provider
 
-1. Clone the repository
-1. Enter the repository directory
-1. Build the provider using the Go `install` command:
+## Status
 
-```shell
-go install
-```
+This provider is **under active development**. All resources and data sources listed are currently in the **planned** stage and being implemented using the official [control-plane-sdk-go](https://github.com/synadia-io/control-plane-sdk-go).
 
-## Adding Dependencies
+## Getting Started
 
-This provider uses [Go modules](https://github.com/golang/go/wiki/Modules).
-Please see the Go documentation for the most up to date information about using Go modules.
-
-To add a new dependency `github.com/author/dependency` to your Terraform provider:
-
-```shell
-go get github.com/author/dependency
-go mod tidy
-```
-
-Then commit the changes to `go.mod` and `go.sum`.
-
-## Using the provider
-
-Fill this in for each provider
-
-## Developing the Provider
-
-If you wish to work on the provider, you'll first need [Go](http://www.golang.org) installed on your machine (see [Requirements](#requirements) above).
-
-To compile the provider, run `go install`. This will build the provider and put the provider binary in the `$GOPATH/bin` directory.
-
-To generate or update documentation, run `make generate`.
-
-In order to run the full suite of Acceptance tests, run `make testacc`.
-
-*Note:* Acceptance tests create real resources, and often cost money to run.
-
-```shell
-make testacc
-```
+Instructions for installation and usage will be published with the first tagged release.
