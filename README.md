@@ -13,32 +13,31 @@ This Terraform provider allows users to manage and configure [Synadia](https://s
 
 | Name | Description | Status |
 |------|-------------|--------|
-| `synadia_cluster` | Manages a Synadia NATS cluster. | Planned |
-| `synadia_organization` | Manages an organization in the Synadia control plane. | Planned |
-| `synadia_project` | Manages a project under a Synadia organization. | Planned |
-| `synadia_user` | Manages a user in the Synadia control plane. | Planned |
-| `synadia_jwt_claim` | Manages a user JWT claim (identity and permissions). | Planned |
-| `synadia_permission` | Manages permissions for accounts or users. | Planned |
-| `synadia_stream` | Manages a JetStream stream. | Planned |
-| `synadia_consumer` | Manages a JetStream consumer. | Planned |
-| `synadia_kv_bucket` | Manages a JetStream KV bucket. | Planned |
-| `synadia_object_store` | Manages a JetStream object store. | Planned |
-| `synadia_cluster_gateway` | Configures a cluster gateway connection. | Planned |
-| `synadia_leafnode` | Configures a leafnode connection. | Planned |
-| `synadia_service_export` | Exports a service to other accounts. | Planned |
-| `synadia_service_import` | Imports a service from another account. | Planned |
+| Systems | Manage NATS systems | Planned |
+| Teams | Manage Teams | Planned |
+| Agent-tokens | Manage SCP Agent Access Tokens | Planned |
+| Accounts | Manage NATS accounts | Planned |
+| NATS-Users | Manage NATS users | Planned |
+| JetStream | Manage JetStream assets for an Account | Planned |
+| Streams | Manage JetStream streams for an Account | Planned |
+| kv | Manage JetStream KV Buckets for an Account | Planned |
+| Object | Manage JetStream Object Buckets for an Account | Planned |
+| Mirrors | Manage JetStream mirrors for an Account | Planned |
+| Consumers | Manage JetStream consumers for a Stream | Planned |
+| Alerts | Manage alerts for NATS Systems and Accounts | Planned |
+| App-users | Manage People with access to Control Plane | Planned |
+| Authorization | Manage Authorization Policies for Control Plane users | Planned |
+| signing-key-groups | Manage Account Signing Key Groups | Planned |
+| NATS-User-issuance | Manage NATS user issuances | Planned |
+| team-service-accounts | Manage Team Service Accounts for accessing API | Planned |
+| App-service-accounts | Manage App Service Accounts for accessing API | Planned |
 
 
 ### Data Sources
 
 | Name | Description | Status |
 |------|-------------|--------|
-| `synadia_clusters` | Fetches a list of clusters. | Planned |
-| `synadia_cluster` | Fetches details for a specific cluster. | Planned |
-| `synadia_organization` | Fetches details of an organization. | Planned |
-| `synadia_user` | Fetches details of a user. | Planned |
-| `synadia_stream` | Fetches details of a stream. | Planned |
-| `synadia_kv_bucket` | Fetches details of a KV bucket. | Planned |
+| `system` | Fetches a system details. | Planned |
 
 
 ## Status
@@ -48,3 +47,8 @@ This provider is **under active development**. All resources and data sources li
 ## Getting Started
 
 Instructions for installation and usage will be published with the first tagged release.
+
+
+
+
+
